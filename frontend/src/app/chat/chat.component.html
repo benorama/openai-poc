@@ -1,0 +1,31 @@
+<main class="main">
+
+    <h3>AI Chat</h3>
+    <form class="row g-3" [formGroup]="chatForm" (ngSubmit)="onSubmit()">
+        <div class="col-12">
+            <textarea formControlName="question"
+                      class="form-control"
+                      required
+                      type="text"
+                      name="question"
+                      placeholder="Ask your question"
+                      aria-label="default input example"></textarea>
+        </div>
+        <div class="col-12">
+            <div *ngFor="let tone of availableTones" class="form-check form-check-inline">
+                <input type="checkbox" #toneCheckbox (change)="onChange(tone, toneCheckbox.checked)"
+                       class="form-check-input"/>
+                <label class="form-check-label" [ngClass]="tone">{{tone}}</label>
+            </div>
+        </div>
+        <div class="col-12">
+            <input class="btn btn-primary mt-1"
+                   type="submit"
+                   [disabled]="!chatForm.valid"
+                   value="Submit">
+        </div>
+    </form>
+    <div class="mt-4" *ngIf="result">
+        <b>{{result}}</b>
+    </div>
+</main>

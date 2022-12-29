@@ -1,0 +1,46 @@
+<main class="main">
+
+    <h3>Name my pet</h3>
+    <form class="row g-3" [formGroup]="animalForm" (ngSubmit)="onSubmit()">
+        <div class="col-12">
+            <input formControlName="animalName"
+                   class="form-control"
+                   required
+                   type="text"
+                   name="animal"
+                   placeholder="Enter an animal"
+                   aria-label="default input example">
+        </div>
+        <div class="col-12">
+            <div class="form-check">
+                <input formControlName="superHero"
+                       class="form-check-input"
+                       type="checkbox"
+                       value=""
+                       id="superHeroCheck">
+                <label class="form-check-label" for="superHeroCheck">
+                    Super hero mode
+                </label>
+            </div>
+            <div class="form-check">
+                <input formControlName="creative"
+                       class="form-check-input"
+                       type="checkbox"
+                       value=""
+                       id="randomCheck">
+                <label class="form-check-label" for="randomCheck">
+                    Creative
+                </label>
+            </div>
+        </div>
+        <div class="col-12">
+            <input class="btn btn-primary mt-1"
+                   type="submit"
+                   [disabled]="!animalForm.valid"
+                   value="Generate names">
+        </div>
+    </form>
+    <div class="mt-4" *ngIf="result">
+        <b>{{result}}</b>
+    </div>
+</main>

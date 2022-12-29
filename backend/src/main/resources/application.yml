@@ -1,0 +1,14 @@
+micronaut:
+  application:
+    name: openai
+  server:
+    cors:
+      enabled: true
+      configurations:
+        web:
+          allowedOrigins:
+            - http://localhost:4200
+netty:
+  default:
+    allocator:
+      max-order: 3

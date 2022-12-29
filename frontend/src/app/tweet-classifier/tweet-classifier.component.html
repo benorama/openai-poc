@@ -1,0 +1,24 @@
+<main class="main">
+
+    <h3>Tweet Classifier</h3>
+    <form class="row g-3" [formGroup]="tweetForm" (ngSubmit)="onSubmit()">
+        <div class="col-12">
+            <textarea formControlName="tweet"
+                      class="form-control"
+                      required
+                      type="text"
+                      name="tweet"
+                      placeholder="Enter a tweet"
+                      aria-label="default input example"></textarea>
+        </div>
+        <div class="col-12">
+            <input class="btn btn-primary mt-1"
+                   type="submit"
+                   [disabled]="!tweetForm.valid"
+                   value="Analyze sentiment">
+        </div>
+    </form>
+    <div class="mt-4" *ngIf="result">
+        <b>{{result}}</b>
+    </div>
+</main>
