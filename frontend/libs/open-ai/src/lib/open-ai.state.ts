@@ -1,3 +1,5 @@
+import {ModerationResult} from "./open-ai-moderation-result.model";
+
 export interface OpenAiState {
     completion: {
         prompt: string,
@@ -5,7 +7,8 @@ export interface OpenAiState {
         temperature: number
     },
     moderation: {
-        results: []
+        input: string,
+        result: ModerationResult
     }
 }
 
@@ -16,6 +19,7 @@ export const initialOpenAiState: OpenAiState = {
         temperature: 0
     },
     moderation: {
-        results: []
+        input: '',
+        result: new ModerationResult()
     }
 }

@@ -15,7 +15,7 @@
             <div *ngFor="let tone of availableTones" class="form-check form-check-inline">
                 <input type="checkbox" #toneCheckbox (change)="onChange(tone, toneCheckbox.checked)"
                        class="form-check-input"/>
-                <label class="form-check-label" [ngClass]="tone">{{tone}}</label>
+                <label class="form-check-label" [ngClass]="tone">&nbsp;{{tone}}</label>
             </div>
         </div>
         <div class="col-12">

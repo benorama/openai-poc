@@ -1,0 +1,62 @@
+<main class="main">
+    <h3>Moderation</h3>
+    <form class="row g-3" [formGroup]="moderationForm" (ngSubmit)="onSubmit()">
+        <div class="col-12">
+            <textarea formControlName="input"
+                      class="form-control"
+                      required
+                      type="text"
+                      name="input"
+                      placeholder="Enter text to moderate"
+                      aria-label="default input example"></textarea>
+        </div>
+        <div class="col-12">
+            <input class="btn btn-primary mt-1"
+                   type="submit"
+                   [disabled]="!moderationForm.valid"
+                   value="Send">
+        </div>
+    </form>
+    <div class="mt-4" *ngIf="moderationResult">
+        <div>
+            Flagged: <b [ngClass]="{'text-success': !moderationResult.flagged, 'text-danger': moderationResult.flagged}">{{moderationResult.flagged}}</b>
+        </div>
+        <ul>
+            <li>
+                😡 Hate:
+                <b [ngClass]="{'text-success': !moderationResult.categories.hate, 'text-danger': moderationResult.categories.hate}">{{moderationResult.categories.hate}}</b>
+                &nbsp;<span [ngClass]="{'text-warning': moderationResult.categoryScores.hate > 0.1}">({{moderationResult.categoryScores.hate | number}})</span>
+            </li>
+            <li>
+                🤬 Hate/Threatening:
+                <b [ngClass]="{'text-success': !moderationResult.categories.hateThreatening, 'text-danger': moderationResult.categories.hateThreatening}">{{moderationResult.categories.hateThreatening}}</b>
+                &nbsp;({{moderationResult.categoryScores.hateThreatening | number}})
+            </li>
+            <li>
+                💀 Self-harm:
+                <b [ngClass]="{'text-success': !moderationResult.categories.selfHarm, 'text-danger': moderationResult.categories.selfHarm}">{{moderationResult.categories.selfHarm}}</b>
+                &nbsp;({{moderationResult.categoryScores.selfHarm | number}})
+            </li>
+            <li>
+                🍆 Sexual:
+                <b [ngClass]="{'text-success': !moderationResult.categories.sexual, 'text-danger': moderationResult.categories.sexual}">{{moderationResult.categories.sexual}}</b>
+                &nbsp;({{moderationResult.categoryScores.sexual | number}})
+            </li>
+            <li>
+                😈 Sexual/Minors:
+                <b [ngClass]="{'text-success': !moderationResult.categories.sexualMinors, 'text-danger': moderationResult.categories.sexualMinors}">{{moderationResult.categories.sexualMinors}}</b>
+                &nbsp;({{moderationResult.categoryScores.sexualMinors | number}})
+            </li>
+            <li>
+                🔪 Violence:
+                <b [ngClass]="{'text-success': !moderationResult.categories.violence, 'text-danger': moderationResult.categories.violence}">{{moderationResult.categories.violence}}</b>
+                &nbsp;({{moderationResult.categoryScores.violence | number}})
+            </li>
+            <li>
+                🔪 Violence / Graphic:
+                <b [ngClass]="{'text-success': !moderationResult.categories.violenceGraphic, 'text-danger': moderationResult.categories.violenceGraphic}">{{moderationResult.categories.violenceGraphic}}</b>
+                &nbsp;({{moderationResult.categoryScores.violenceGraphic | number}})
+            </li>
+        </ul>
+    </div>
+</main>

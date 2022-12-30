@@ -1,5 +1,5 @@
 import {createActionGroup, emptyProps, props} from '@ngrx/store';
-import {Moderation} from "./open-ai-moderation.model";
+import {ModerationResult} from "./open-ai-moderation-result.model";
 
 export const OpenAiActions = createActionGroup({
     source: 'Open AI',
@@ -9,7 +9,7 @@ export const OpenAiActions = createActionGroup({
         'Complete success': props<{ text: string }>(),
         'Moderate': props<{ input: string }>(),
         'Moderate failure': props<{ error: any }>(),
-        'Moderate success': props<{ moderation: Moderation }>(),
+        'Moderate success': props<{ moderation: ModerationResult }>(),
         'Reset state': props<{ prompt: string }>()
     }
 })

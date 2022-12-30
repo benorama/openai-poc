@@ -47,10 +47,11 @@ export class ChatComponent extends AbstractDestroyable implements OnInit {
   }
 
   onSubmit() {
-    const tones: string[] = this.chatForm.value.tones as string[];
     const question: string = this.chatForm.controls.question.value ?? '';
+    const tones: string[] = this.chatForm.value.tones as string[];
+    const prompt: string = this.generatePrompt(question, tones);
     this.store.dispatch(OpenAiActions.complete({
-          prompt: this.generatePrompt(question, tones),
+          prompt: prompt,
           temperature: 0
         }
     ))

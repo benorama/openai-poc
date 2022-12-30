@@ -4,6 +4,7 @@ import {HomeComponent} from "./home/home.component";
 import {NameMyPetComponent} from "./name-my-pet/name-my-pet.component";
 import {TweetClassifierComponent} from "./tweet-classifier/tweet-classifier.component";
 import {ChatComponent} from "./chat/chat.component";
+import {ModerationComponent} from "./moderation/moderation.component";
 
 const routes: Routes = [
     {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -11,6 +12,7 @@ const routes: Routes = [
     {path: 'name-my-pet', component: NameMyPetComponent},
     {path: 'tweet-classifier', component: TweetClassifierComponent},
     {path: 'chat', component: ChatComponent},
+    {path: 'moderation', component: ModerationComponent},
 ];
 
 @NgModule({

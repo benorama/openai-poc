@@ -1,3 +1,30 @@
 <div class="jumbotron">
-    <h4>Welcome to OpenAI Playground!</h4>
+    <h3>Welcome to OpenAI Playground!</h3>
+    <p>
+        This is a proof of concept to test OpenAI beta APIs:<br/>
+        <a href="https://beta.openai.com/docs/introduction/overview" target="_blank">https://beta.openai.com/docs/introduction/overview</a>
+    </p>
+    <h4>Text completion</h4>
+    <p>
+        The main API used is the <code>completion</code> endpoint to generate or manipulate text:
+    </p>
+    <ul>
+        <li>Guide: <a href="https://beta.openai.com/docs/guides/completion/introduction">https://beta.openai.com/docs/guides/completion/introduction</a></li>
+        <li>API: <a href="https://beta.openai.com/docs/api-reference/completions">https://beta.openai.com/docs/api-reference/completions</a></li>
+    </ul>
+    <p>
+        Note: by default, it uses <code>text-davinci-003</code> model, but this can be easily change in backend config.
+    </p>
+    <h4>Moderation</h4>
+    <p>
+        It also uses the <code>moderation</code> endpoint, that should be used before any <code>completion</code> endpoint request to comply with OpenAI terms of service:
+    </p>
+    <ul>
+        <li>Guide: <a href="https://beta.openai.com/docs/guides/moderation">https://beta.openai.com/docs/guides/moderation</a></li>
+        <li>API: <a href="https://beta.openai.com/docs/api-reference/moderations">https://beta.openai.com/docs/api-reference/moderations</a></li>
+    </ul>
+    <p>
+        Note: by default, it uses <code>text-moderation-stable</code> model, but this can be easily change in backend config.
+    </p>
 </div>
+

@@ -1,6 +1,6 @@
 import {createReducer, on} from '@ngrx/store';
 import {OpenAiActions} from './open-ai.actions';
-import {initialOpenAiState} from "./open-ai.state";
+import {initialOpenAiState} from './open-ai.state';
 
 export const openAiReducer = createReducer(
     initialOpenAiState,
@@ -23,8 +23,24 @@ export const openAiReducer = createReducer(
             }
         };
     }),
-    on(OpenAiActions.moderate, (state) => state),
-    on(OpenAiActions.moderateSuccess, (state) => state),
+    on(OpenAiActions.moderate, (state, {input}) => {
+        return {
+            ...state,
+            moderation: {
+                input,
+                result: state.moderation.result
+            }
+        }
+    }),
+    on(OpenAiActions.moderateSuccess, (state, {moderation}) => {
+        return {
+            ...state,
+            moderation: {
+                input: state.moderation.input,
+                result: moderation
+            }
+        }
+    }),
     on(OpenAiActions.resetState, (state, {prompt}) => {
         return {
             ...initialOpenAiState,

@@ -21,3 +21,11 @@
 .fearful::before {
     content: "😨";
 }
+
+.funny::before {
+    content: "🤪";
+}
+
+.respectful::before {
+    content: "🤵‍";
+}
