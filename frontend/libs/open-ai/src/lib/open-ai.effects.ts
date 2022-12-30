@@ -21,6 +21,7 @@ export class OpenAiEffects {
                 mergeMap((action) =>
                     this.openAiApiService.complete(
                         action.prompt,
+                        action.maxTokens,
                         action.temperature
                     ).pipe(
                         map((result: any) =>

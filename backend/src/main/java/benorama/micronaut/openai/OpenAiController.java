@@ -30,7 +30,13 @@ public class OpenAiController {
     @Post("/completions")
     public HttpResponse<CompletionAiResponse> complete(CompletionAiRequest completionAiRequest) {
         CompletionAiResponse completionAiResponse = new CompletionAiResponse();
-        ArrayList<String> texts = completionAiService.complete(completionAiRequest.getPrompt(), completionAiRequest.getTemperature(), openAiServiceConfig.getCompletionModel(), "some-user-identity-id");
+        ArrayList<String> texts = completionAiService.complete(
+                completionAiRequest.getPrompt(),
+                completionAiRequest.getTemperature(),
+                completionAiRequest.getMaxTokens(),
+                openAiServiceConfig.getCompletionModel(),
+                "some-user-identity-id"
+        );
         if (texts.size() > 0) {
             // Return first choice by default
             completionAiResponse.setText(texts.get(0));

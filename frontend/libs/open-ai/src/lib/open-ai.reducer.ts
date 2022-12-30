@@ -4,10 +4,11 @@ import {initialOpenAiState} from './open-ai.state';
 
 export const openAiReducer = createReducer(
     initialOpenAiState,
-    on(OpenAiActions.complete, (state, {prompt, temperature}) => {
+    on(OpenAiActions.complete, (state, {prompt, maxTokens, temperature}) => {
         return {
             ...state,
             completion: {
+                maxTokens: maxTokens,
                 prompt: prompt,
                 result: '',
                 temperature: temperature
@@ -45,6 +46,7 @@ export const openAiReducer = createReducer(
         return {
             ...initialOpenAiState,
             completion: {
+                maxTokens: 256,
                 prompt: prompt,
                 result: '',
                 temperature: 0

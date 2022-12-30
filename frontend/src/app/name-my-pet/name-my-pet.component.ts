@@ -35,6 +35,7 @@ export class NameMyPetComponent extends AbstractDestroyable implements OnInit {
         const superHero: boolean = !!this.animalForm.controls.superHero.value ?? false;
         const creative: boolean = !!this.animalForm.controls.creative.value ?? false;
         this.store.dispatch(OpenAiActions.complete({
+                maxTokens: 256,
                 prompt: this.generatePrompt(animalName, superHero),
                 temperature: creative ? 1 : 0
             }

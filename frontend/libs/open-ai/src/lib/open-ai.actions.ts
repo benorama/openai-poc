@@ -4,7 +4,7 @@ import {ModerationResult} from "./open-ai-moderation-result.model";
 export const OpenAiActions = createActionGroup({
     source: 'Open AI',
     events: {
-        'Complete': props<{ prompt: string, temperature: number }>(),
+        'Complete': props<{ prompt: string, maxTokens: number, temperature: number }>(),
         'Complete failure': props<{ error: any }>(),
         'Complete success': props<{ text: string }>(),
         'Moderate': props<{ input: string }>(),

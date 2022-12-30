@@ -17,14 +17,14 @@ public class CompletionAiService {
 
     private static Logger logger = LoggerFactory.getLogger(CompletionAiService.class);
 
-    public ArrayList<String> complete(String prompt, Double temperature, String model, String user) {
+    public ArrayList<String> complete(String prompt, Double temperature, Integer maxTokens, String model, String user) {
         logger.info("Creating completion...");
         CompletionRequest completionRequest = CompletionRequest.builder()
                 .model(model)
                 .prompt(prompt)
                 .temperature(temperature)
                 .user(user)
-                .maxTokens(256)
+                .maxTokens(maxTokens)
                 .build();
         ArrayList<String> texts = new ArrayList<String>();
         try {

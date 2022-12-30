@@ -9,6 +9,7 @@ import {selectOpenAiCompletion} from "open-ai";
 })
 export class SettingsComponent {
 
+    maxTokens = 256;
     prompt = '';
     temperature = 0;
 
@@ -17,6 +18,7 @@ export class SettingsComponent {
 
     ngOnInit() {
         this.store.select(selectOpenAiCompletion).subscribe((completion) => {
+            this.maxTokens = completion.maxTokens;
             this.prompt = completion.prompt;
             this.temperature = completion.temperature;
         });

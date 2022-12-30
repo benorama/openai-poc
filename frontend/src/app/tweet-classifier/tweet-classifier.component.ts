@@ -31,6 +31,7 @@ export class TweetClassifierComponent extends AbstractDestroyable implements OnI
     onSubmit() {
         const tweet: string = this.tweetForm.controls.tweet.value ?? '';
         this.store.dispatch(OpenAiActions.complete({
+                maxTokens: 256,
                 prompt: this.generatePrompt(tweet),
                 temperature: 0
             }

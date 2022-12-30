@@ -2,6 +2,7 @@ import {ModerationResult} from "./open-ai-moderation-result.model";
 
 export interface OpenAiState {
     completion: {
+        maxTokens: number,
         prompt: string,
         result: string,
         temperature: number
@@ -14,6 +15,7 @@ export interface OpenAiState {
 
 export const initialOpenAiState: OpenAiState = {
     completion: {
+        maxTokens: 256,
         prompt: '',
         result: '',
         temperature: 0
