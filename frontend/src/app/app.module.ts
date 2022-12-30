@@ -13,6 +13,7 @@ import {TweetClassifierComponent} from './tweet-classifier/tweet-classifier.comp
 import {HomeComponent} from './home/home.component';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {ChatComponent} from './chat/chat.component';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
     declarations: [
@@ -20,7 +21,8 @@ import {ChatComponent} from './chat/chat.component';
         NameMyPetComponent,
         TweetClassifierComponent,
         HomeComponent,
-        ChatComponent
+        ChatComponent,
+        SettingsComponent
     ],
     imports: [
         BrowserModule,

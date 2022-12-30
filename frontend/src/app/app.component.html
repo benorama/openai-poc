@@ -33,33 +33,7 @@
                 </div>
             </div>
         </nav>
-        <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-             id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Settings</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <div class="mb-4">
-                    <h6>Temperature</h6>
-                    <div class="d-flex ">
-                        🧊
-                        <input formControlName="temperatureControl"
-                               type="range"
-                               class="form-range"
-                               min="0" max="1"
-                               [value]="temperature"
-                               step="0.1"
-                               id="temperatureRange">
-                        🔥
-                    </div>
-                </div>
-                <div class="mb-4">
-                    <h6>Prompt</h6>
-                    <code style="white-space:pre-wrap;">{{prompt}}</code>
-                </div>
-            </div>
-        </div>
+        <app-settings></app-settings>
 
         <router-outlet></router-outlet>
     </div>

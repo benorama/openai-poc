@@ -8,16 +8,5 @@ import {Store} from "@ngrx/store";
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    prompt = '';
-    temperature = 0;
 
-    constructor(private store: Store) {
-    }
-
-    ngOnInit() {
-        this.store.select(selectOpenAiCompletion).subscribe((completion) => {
-            this.prompt = completion.prompt;
-            this.temperature = completion.temperature;
-        });
-    }
 }
